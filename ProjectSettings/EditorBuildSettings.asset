@@ -6,9 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Bootstrapper.unity
+    guid: d3dcceeebcf88ad49aca9343adebdf5d
+  - enabled: 1
+    path: Assets/Scenes/HubScene.unity
+    guid: 442f04e65d086304781240f3c89f8c8c
+  - enabled: 1
+    path: Assets/Scenes/CoreMechanicsScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: fbbc233631b6a1847b02fd0ff06c16fb
+  - enabled: 1
+    path: Assets/Scenes/PrecisionToolsScene.unity
+    guid: 438a0ae0fc1ff0542bba3928d0c8ed84
+  - enabled: 1
+    path: Assets/Scenes/AdvancedScene.unity
+    guid: b4b6230dc9e8a07439c65fa2662de7ca
+  - enabled: 1
+    path: Assets/Scenes/DebugScene.unity
+    guid: db6098348fe1a484981befba378e811e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b6f181f8dec0d2348ac31696d90b9a85, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 22963a3d317f26646927e1618a0ff600, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 804b9f3f8f4a9e54aa8fb559698dbe1c, type: 2}
