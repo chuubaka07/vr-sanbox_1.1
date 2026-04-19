@@ -1,34 +1,44 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Необходимо для работы с UI
 
 public class SceneLoader : MonoBehaviour
 {
-    // Этот метод будет вызываться при нажатии на кнопку
-    public void LoadScene(string sceneName)
+    private string currentDemoScene = null; // храним имя текущей загруженной демо-сцены
+
+    // Загружает новую демо-сцену, выгружая предыдущую
+    public void LoadDemoScene(string sceneName)
     {
-        if (!string.IsNullOrEmpty(sceneName))
-        {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-            Debug.Log($"Загружаем сцену: {sceneName}");
-        }
-        else
+        if (string.IsNullOrEmpty(sceneName))
         {
             Debug.LogWarning("Имя сцены не указано!");
+            return;
         }
-    }
 
-    // Метод для выгрузки сцены (например, при нажатии кнопки "Назад" в демо-сцене)
-    public void UnloadScene(string sceneName)
-    {
-        if (SceneManager.GetSceneByName(sceneName).isLoaded)
+        // Если уже загружена какая-то демо-сцена, выгружаем её
+        if (!string.IsNullOrEmpty(currentDemoScene))
         {
-            SceneManager.UnloadSceneAsync(sceneName);
-            Debug.Log($"Выгружаем сцену: {sceneName}");
+            SceneManager.UnloadSceneAsync(currentDemoScene);
+            Debug.Log($"Выгружена предыдущая сцена: {currentDemoScene}");
+        }
+
+        // Загружаем новую сцену аддитивно
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        currentDemoScene = sceneName;
+        Debug.Log($"Загружена новая сцена: {sceneName}");
+    }
+
+    // Метод для возврата в HubScene (выгружает текущую демо-сцену, но HubScene остаётся)
+    public void UnloadCurrentDemoScene()
+    {
+        if (!string.IsNullOrEmpty(currentDemoScene))
+        {
+            SceneManager.UnloadSceneAsync(currentDemoScene);
+            currentDemoScene = null;
+            Debug.Log("Демо-сцена выгружена, возврат в HubScene");
         }
     }
 
-    // Метод для выхода из приложения
+    // Выход из приложения
     public void ExitGame()
     {
 #if UNITY_EDITOR
