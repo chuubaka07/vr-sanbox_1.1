@@ -26,13 +26,13 @@
 
 1. Установите **Unity 6.4(6000.4.1f1).
 2. Склонируйте репозиторий:  
-   `git clone https://github.com/ваш-аккаунт/VR-Sandbox-HandTracking.git`
+   `git clone https://github.com/chuubaka07/vr-sanbox_1.1.git`
 3. Откройте проект в Unity.
 4. Убедитесь, что установлены пакеты (через Package Manager):
    - XR Interaction Toolkit (3.x)
    - OpenXR Plugin
    - XR Device Simulator
-5. Откройте сцену `Assets/Scenes/MainScene.unity`.
+5. Откройте сцену `Assets/Scenes/Bootstrapper.unity`.
 6. Нажмите **Play**.
 7. Управление жестами в эмуляции описано ниже.
 
